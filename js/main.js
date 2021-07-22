@@ -9,16 +9,10 @@ const refs = {
     image: document.querySelector('.lightbox__image'),
     closeBtn: document.querySelector('.lightbox__button'),
 };
-// console.log(refs.gallery);
-// console.log(refs.lightbox);
-// console.log(refs.overlay);
-// console.log(refs.content);
-// console.log(refs.image);
-// console.log(refs.closeBtn);
 
 function creatGalleryElement() {
     return galleryItems
-    .map(({ preview, original, description }) => {
+    .map(({ preview, original, description }, index) => {
         return `<li class="gallery__item">
         <a
             class="gallery__link"
@@ -29,6 +23,7 @@ function creatGalleryElement() {
                 src="${preview}"
                 data-source="${original}"
                 alt="${description}"
+                data-index="${index}"
             />
         </a>
     </li>`})
